@@ -36,8 +36,8 @@ public class Sudoku {
      */
     public static void instruccionInicial(){
         System.out.println("\n                                      SUDOKU\n");
-        System.out.println("El juego de SUDOKU presentado en este proyecto se generará automaticamente, luego");
-        System.out.print("se completará por backtraking e informará al usuario si este tenia solución.\n\n");
+        System.out.println("El juego de SUDOKU presentado en este proyecto se generará automáticamente, luego");
+        System.out.print("se completará por medio backtraking e informará al usuario sí este tenia solución o no.\n\n");
     }
 
     /**
