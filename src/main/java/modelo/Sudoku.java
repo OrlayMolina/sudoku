@@ -9,19 +9,8 @@ public class Sudoku {
 
     private int sudoku[][];
 
-    public Sudoku(){
-        int[][] sudo = {
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        };
-        sudoku=sudo;
+    public Sudoku(int[][] sudoku) {
+        this.sudoku = sudoku;
     }
 
     /**
@@ -48,7 +37,29 @@ public class Sudoku {
     public static void instruccionInicial(){
         System.out.println("\n                                      SUDOKU\n");
         System.out.println("El juego de SUDOKU presentado en este proyecto se generará automaticamente, luego");
-        System.out.print("se completará por backtraking e informará al usuario si este tenia solución.");
+        System.out.print("se completará por backtraking e informará al usuario si este tenia solución.\n\n");
+    }
+
+    /**
+     * Función recorrerSudoku() empleada para pasar por cada uno de los componenetes del SUDOKU con recursividad.
+     * @param matriz
+     * @param fila
+     * @param columna
+     */
+    public static void recorrerSudoku(int[][] matriz, int fila, int columna){
+        if(fila == matriz.length || columna == matriz.length){
+            System.out.println("\n      --- SUDOKU RECORRIDO ---");
+        } else {
+            System.out.print(" "+matriz[fila][columna]+" |");
+            if(columna == matriz.length-1){
+                fila++;
+                columna = 0;
+                System.out.println("");
+            }else{
+                columna++;
+            }
+            recorrerSudoku(matriz, fila, columna);
+        }
     }
 
 
