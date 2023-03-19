@@ -9,6 +9,9 @@ public class Sudoku {
 
     private static int[][] sudoku;
 
+    /**
+     * Constructor de la Clase Sudoku en donde se define una matriz 9x9 con algunas posiciones ocupadas por números del 1 al 9.
+     */
     public Sudoku() {
         int[][] sudo = {
                 {0, 6, 0, 1, 0, 4, 0, 5, 0},
@@ -24,6 +27,12 @@ public class Sudoku {
         this.sudoku = sudo;
     }
 
+    /**
+     * Función resolverSudoku() trabaja con la matriz 9x9 definida para la clase Sudoku y valida si en el componente sobre la cual está
+     * ubicada es igual a cero (0) que significa vacío, sí es así a través de un for asigna los números del 1 al 9, siempre y cuando las
+     * validaciones de fila, columna y cuadrante sean verdaderas
+     * @return
+     */
     public static boolean resolverSudoku() {
         for (int fila = 0; fila < sudoku.length; fila++) {
             for (int columna = 0; columna < sudoku[0].length; columna++) {
@@ -59,7 +68,12 @@ public class Sudoku {
         return true;
     }
 
-
+    /**
+     * Función subCuadranteActual() devuelve un número entero el cual permite identificar en cual subcuadrante 3x3 estamos ubicados
+     * ya que la matriz asignada a la clase Sudoku es 9x9 y cuenta con 9 subdivisiones.
+     * @param pos
+     * @return
+     */
     public static int subCuadranteActual(int pos) {
         if (pos <= 2) {
             return 3;
@@ -80,6 +94,13 @@ public class Sudoku {
     }
 
 
+    /**
+     * Función validarColumna() recursiva
+     * @param columna
+     * @param valor
+     * @param fila
+     * @return
+     */
     public static boolean validarColumna(int columna, int valor, int fila) {
         if (fila == sudoku.length) {
             return true;
@@ -121,7 +142,7 @@ public class Sudoku {
     }
 
     /**
-     * Función recorrerSudokuSolucion() emplea dentro de sí misma la función resolverSudoku() para buscar la solución al SUDOKU planteado.
+     * Función recorrerSudokuSolucion() emplea dentro de sí misma la función resolverSudoku() para imprimir la solución al SUDOKU planteado.
      * @param fila
      * @param columna
      */
