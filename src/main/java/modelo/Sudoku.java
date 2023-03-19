@@ -53,13 +53,19 @@ public class Sudoku {
         return true;
     }
 
-
+    /**
+     * La función validarCuadrante() emplea una función auxiliar llamada subCuadranteActual()
+     * @param fila
+     * @param columna
+     * @param valor
+     * @return
+     */
     public static boolean validarCuadrante(int fila, int columna, int valor) {
-        int posI = subCuadranteActual(fila);
-        int posJ = subCuadranteActual(columna);
+        int posicionFila = subCuadranteActual(fila);
+        int posicionColumna = subCuadranteActual(columna);
 
-        for (int i = posI - 3; i < posI; i++) {
-            for (int j = posJ - 3; j < posJ; j++) {
+        for (int i = posicionFila - 3; i < posicionFila; i++) {
+            for (int j = posicionColumna - 3; j < posicionColumna; j++) {
                 if (sudoku[i][j] == valor) {
                     return false;
                 }
@@ -84,6 +90,13 @@ public class Sudoku {
         }
     }
 
+    /**
+     * Función validarFila() recursiva que verifica sí en la fila se encuentra el valor recibido por parámetro del for de la función resolverSudoku().
+     * @param fila
+     * @param valor
+     * @param columna
+     * @return
+     */
     public static boolean validarFila(int fila, int valor, int columna) {
         if (columna == sudoku[fila].length) {
             return true;
@@ -95,7 +108,7 @@ public class Sudoku {
 
 
     /**
-     * Función validarColumna() recursiva
+     * Función validarColumna() recursiva que verifica sí en la fila se encuentra el valor recibido por parámetro del for de la función resolverSudoku().
      * @param columna
      * @param valor
      * @param fila
