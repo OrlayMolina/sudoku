@@ -61,8 +61,8 @@ public class Sudoku {
      * @return
      */
     public static boolean validarCuadrante(int fila, int columna, int valor) {
-        int posicionFila = subCuadranteActual(fila);
-        int posicionColumna = subCuadranteActual(columna);
+        int posicionFila = subCuadranteActual(fila); //0 -> 3
+        int posicionColumna = subCuadranteActual(columna); // 1 -> 3
 
         for (int i = posicionFila - 3; i < posicionFila; i++) {
             for (int j = posicionColumna - 3; j < posicionColumna; j++) {
